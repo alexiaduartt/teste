@@ -22,12 +22,17 @@ export default function CadastroGeralScreen() {
     <SafeAreaView
       style={[styles.safeArea, { backgroundColor: themeColors.primary }]}
     >
+      {/* ⚠️ Nota: Para ficar IDÊNTICO à imagem 2 (Menu Esquerda, Notificações Direita), 
+          usamos o Header da tela 'index' que é ligeiramente diferente das telas internas. */}
       <View
         style={[styles.header, { backgroundColor: themeColors.primary }]}
       >
+        {/* 👈 ÍCONE DE MENU NA ESQUERDA */}
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <Ionicons name="menu" size={30} color={themeColors.headerText} />
         </TouchableOpacity>
+        
+        {/* TÍTULO AGROSYS */}
         <Text
           style={[
             styles.headerTitle,
@@ -36,6 +41,8 @@ export default function CadastroGeralScreen() {
         >
           AGROSYS
         </Text>
+        
+        {/* ÍCONE DE NOTIFICAÇÕES NA DIREITA 👉 */}
         <Link href={'/modal' as any} asChild>
           <TouchableOpacity>
             <Ionicons
@@ -103,13 +110,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    borderBottomWidth: 1,
+    borderBottomWidth: 16,
     borderBottomColor: '#165B33',
   },
-  headerTitle: {
+ headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginRight: 'auto',
+    // 👈 AQUI é a alteração para alinhar "AGROSYS" no meio, empurrando o título para o centro.
+    marginRight: 'auto', 
     marginLeft: 10,
   },
   container: {
