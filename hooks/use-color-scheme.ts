@@ -1,18 +1,8 @@
-// @/constants/theme -> ../constants/theme
-import { Colors } from '../constants/theme';
-import { useColorScheme } from './use-color-scheme'; // assuming use-color-scheme is in the same directory
+// hooks/use-color-scheme.ts
+import { useColorScheme as _useColorScheme } from 'react-native';
 
-// O restante do código permanece o mesmo, a não ser que você queira usar o alias @/
-export function useThemeColor(
-  props: { light?: string; dark?: string },
-  colorName: keyof typeof Colors.light & keyof typeof Colors.dark
-) {
-  const theme = useColorScheme() ?? 'light';
-  const colorFromProps = props[theme];
-
-  if (colorFromProps) {
-    return colorFromProps;
-  } else {
-    return Colors[theme][colorName];
-  }
+// Garante que o retorno é sempre 'light' ou 'dark'
+export function useColorScheme(): 'light' | 'dark' {
+  const scheme = _useColorScheme();
+  return scheme === 'dark' ? 'dark' : 'light';
 }
