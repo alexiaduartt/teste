@@ -4,7 +4,7 @@
  */
 
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useColorScheme } from '@/hooks/use-color-scheme'; // assuming use-color-scheme is in the same directory
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
